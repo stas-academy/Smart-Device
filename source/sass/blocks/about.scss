@@ -1,0 +1,129 @@
+.about {
+  padding-top: 46px;
+  padding-bottom: 111px;
+
+  @media (max-width: $tablet-width) {
+    padding-top: 20px;
+    padding-bottom: 84px;
+  }
+
+  @media (max-width: $mobile-width) {
+    padding-top: 60px;
+    padding-bottom: 65px;
+  }
+}
+
+.about__wrapper {
+  position: relative;
+}
+
+.about__container {
+  margin-left: 315px;
+  margin-right: 148px;
+
+  &::after {
+    content: "";
+    background-image: url("../img/2005-desktop@1x.png");
+    background-repeat: no-repeat;
+    width: 180px;
+    height: 320px;
+    display: block;
+    position: absolute;
+    top: 5px;
+    left: 105px;
+  }
+
+  & h2 {
+    font-family: "RobotoCondensed", "Arial", sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 51px;
+    color: $color-dull-gray;
+    margin-bottom: 22px;
+  }
+
+  & p {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    color: $color-dull-gray;
+
+    &:not(:last-of-type) {
+      margin-bottom: 21px;
+    }
+  }
+
+  @media (max-width: $tablet-width) {
+    margin-left: 211px;
+    margin-right: 28px;
+
+    & h2 {
+      font-size: 32px;
+      line-height: 45px;
+    }
+
+    &::after {
+      top: -2px;
+      left: 0;
+      height: 356px;
+      background-image: url("../img/2005-tablet@1x.png");
+    }
+  }
+
+  @media (max-width: $mobile-width) {
+    margin: 0 15px;
+
+    & h2 {
+      font-size: 28px;
+      line-height: 39px;
+    }
+
+    & p {
+      &:not(:last-of-type) {
+        margin-bottom: 39px;
+      }
+    }
+
+    &::after {
+      content: none;
+    }
+  }
+}
+
+.about__btn {
+  font-family: "RobotoCondensed", "Arial", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: $color-blue;
+  border: 1px solid $color-blue;
+  border-radius: 5px;
+  padding: 13px 49px;
+  width: min-content;
+  margin-top: 37px;
+  display: block;
+
+  &:hover,
+  &:focus {
+    background-color: $color-blue;
+    color: $color-white;
+  }
+
+  &:active {
+    opacity: 0.7;
+  }
+
+  @media (max-width: $tablet-width) {
+    margin-top: 43px;
+  }
+
+  @media (max-width: $mobile-width) {
+    margin-top: 29px;
+  }
+}
