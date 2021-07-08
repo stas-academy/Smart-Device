@@ -1,6 +1,5 @@
 // "use strict";
-
-{
+const popup = () => {
   const popupCall = document.querySelector(".popup-call");
   const btnCall = document.querySelector(".header__btn");
   const btnCloseCall = document.querySelector(".popup-call__close");
@@ -35,6 +34,14 @@
     overlayCall.removeEventListener("click", closePopup);
   };
   btnCall.addEventListener("click", openPopup);
+};
+let isStorage = popup;
+let storage = "";
+
+try {
+  storage = popup();
+} catch (err) {
+  isStorage = false;
 }
 
 {

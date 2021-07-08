@@ -5,6 +5,7 @@
 .footer__wrapper {
   padding: 65px 0 0 0;
   max-width: 1600px;
+  position: relative;
 
   @media (max-width: $tablet-width) {
     padding: 19px 0 0 0;
@@ -33,30 +34,34 @@
   @media (max-width: $tablet-width) {
     margin-bottom: 0;
   }
-}
-
-.footer__item1-add {
-  display: none;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 13px;
-  line-height: 24px;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: rgba($color-dark-blue, 0.5);
-  margin-top: 4px;
-  margin-right: -10px;
-
-  @media (max-width: $tablet-width) {
-    display: block;
-  }
 
   @media (max-width: $mobile-width) {
-    margin-top: 27px;
-    margin-bottom: 31px;
-    margin-right: 0;
+    margin-bottom: 80px;
   }
 }
+
+// .footer__item1-add {
+//   display: none;
+//   font-style: normal;
+//   font-weight: normal;
+//   font-size: 13px;
+//   line-height: 24px;
+//   letter-spacing: 0.04em;
+//   text-transform: uppercase;
+//   color: rgba($color-dark-blue, 0.5);
+//   margin-top: 4px;
+//   margin-right: -10px;
+
+//   @media (max-width: $tablet-width) {
+//     display: block;
+//   }
+
+//   @media (max-width: $mobile-width) {
+//     margin-top: 27px;
+//     margin-bottom: 31px;
+//     margin-right: 0;
+//   }
+// }
 
 .footer__items {
   display: flex;
@@ -387,12 +392,64 @@
   & p {
     margin-right: 20px;
     margin-top: 13px;
+
+    @media (max-width: $mobile-width) {
+      margin-right: 0;
+    }
   }
 
+
+  @media (max-width: $tablet-width) {
+    position: absolute;
+    top: -364px;
+    left: 329px;
+  }
+
+  @media (max-width: $mobile-width) {
+    top: -308px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+  }
+
+
+  // &:first-child {
+  //   @media (max-width: $tablet-width) {
+  //     display: none;
+  //   }
+  // }
+
+  // &:last-child {
+  //   @media (max-width: $tablet-width) {
+  //     display: block;
+  //     position: absolute;
+  //   }
+  // }
+  // @media (max-width: $tablet-width) {
+  //   display: none;
+  // }
+}
+
+.footer__rights-container-1 .footer__reserved {
   @media (max-width: $tablet-width) {
     display: none;
   }
 }
+
+// .footer__rights-container-1 .footer__service {
+//   @media (max-width: $tablet-width) {
+//     position: absolute;
+//     top: -364px;
+//     left: 329px;
+//   }
+
+//   @media (max-width: $mobile-width) {
+//     top: 100px;
+//     left: 50%;
+//     transform: translateX(-50%);
+//   }
+// }
 
 .footer__rights-container-2 {
   display: flex;

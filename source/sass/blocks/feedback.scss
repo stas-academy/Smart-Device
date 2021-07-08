@@ -30,6 +30,25 @@
   }
 }
 
+.feedback__air {
+  background-image: url("../img/airplane@1x.png");
+  background-repeat: no-repeat;
+  display: block;
+  width: 511px;
+  height: 288px;
+  position: absolute;
+  top: 70px;
+  left: 1px;
+
+  @media (min-resolution: 2dppx) {
+    background-image: url("../img/airplane@2x.png");
+  }
+
+  @media (max-width: $tablet-width) {
+    display: none;
+  }
+}
+
 .feedback__form {
   position: relative;
   width: 570px;
@@ -40,26 +59,28 @@
   justify-content: space-between;
   z-index: 1;
 
-  &::after {
-    content: "";
-    background-image: url("../img/airplane@1x.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    display: block;
-    width: 511px;
-    height: 288px;
-    position: absolute;
-    top: 70px;
-    left: -624px;
+  // Оставлю пока
 
-    @media (min-resolution: 2dppx) {
-      background-image: url("../img/airplane@2x.png");
-    }
+  // &::after {
+  //   content: "";
+  //   background-image: url("../img/airplane@1x.png");
+  //   background-repeat: no-repeat;
+  //   background-size: contain;
+  //   display: block;
+  //   width: 511px;
+  //   height: 288px;
+  //   position: absolute;
+  //   top: 70px;
+  //   left: -624px;
 
-    @media (max-width: $tablet-width) {
-      content: none;
-    }
-  }
+  //   @media (min-resolution: 2dppx) {
+  //     background-image: url("../img/airplane@2x.png");
+  //   }
+
+  //   @media (max-width: $tablet-width) {
+  //     content: none;
+  //   }
+  // }
 
   & h2 {
     font-family: "RobotoCondensed", "Arial", sans-serif;

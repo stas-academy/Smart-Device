@@ -117,11 +117,11 @@
     width: 292px;
     padding: 24px 15px 21px 24px;
 
-    &:nth-child(2) {
+    &:nth-child(3n+2) {
       padding-right: 13px;
     }
 
-    &:nth-child(3) {
+    &:nth-child(3n+3) {
       padding-bottom: 60px;
     }
 
