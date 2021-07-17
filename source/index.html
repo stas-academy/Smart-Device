@@ -11,52 +11,49 @@
 </head>
 <body class="body">
   <div class="body__container">
-    <header class="header">
-      <div class="wrapper header__wrapper">
-        <a class="header__logo">
-          <svg width="202" height="52" viewBox="0 0 202 52">
+    <header class="page-header">
+      <div class="page-header__wrapper wrapper">
+        <a class="page-header__logo">
+          <svg class="page-header__logo-big" width="201" height="52">
             <use xlink:href="img/icon/symbols.svg#logo"></use>
           </svg>
-          <svg width="52" height="52" viewBox="0 0 52 52">
+          <svg class="page-header__logo-small" width="52" height="52">
             <use xlink:href="img/icon/symbols.svg#circuit"></use>
           </svg>
         </a>
-        <div class="header__container-flex">
-          <div class="header__contacts">
-            <a class="header__contacts-mail" href="mailto:info@sd.ru">
-              <svg width="19" height="14" viewBox="0 0 19 14">
-                <use xlink:href="img/icon/symbols.svg#envelope"></use>
-              </svg>
-              <p>info@sd.ru</p>
-            </a>
-            <a class="header__contacts-phone" href="tel:+74950005252">
-              <svg width="18" height="18" viewBox="0 0 18 18">
-                <use xlink:href="img/icon/symbols.svg#phone-call"></use>
-              </svg>
-              <p>+7 (495) 000 52 52</p>
-            </a>
-          </div>
-          <a href="popup.html" class="header__btn">Заказать звонок</a>
+        <div class="page-header__contacts">
+          <a class="page-header__contact page-header__contact--email" href="mailto:info@sd.ru">
+            <svg width="19" height="14">
+              <use xlink:href="img/icon/symbols.svg#envelope"></use>
+            </svg>
+            <span class="page-header__email-text">info@sd.ru</span>
+          </a>
+          <a class="page-header__contact page-header__contact--phone" href="tel:84950005252">
+            <svg width="18" height="18">
+              <use xlink:href="img/icon/symbols.svg#phone-call"></use>
+            </svg>
+            <span>+7 (495) 000 52 52</span>
+          </a>
         </div>
+        <a class="page-header__callback" href="callback.html">заказать звонок</a>
       </div>
     </header>
     <main>
       <section class="general">
-        <div class="wrapper general__wrapper">
-          <h1>Печатные платы</h1>
-          <p>производство и монтаж, поставка комплектующих, блоков и модулей</p>
-          <a class="general__btn-call" href="#feedback">
-            <span>Получить бесплатную консультацию</span>
-            <span>Бесплатная консультация</span>
-          </a>
-          <div class="general__img">
-            <picture>
-              <!-- 1x:705 2x:1410 -->
-              <source srcset="img/card-desktop@1x.webp 1x, img/card-desktop@2x.webp 2x" type="image/webp">
-              <img src="img/card-desktop@1x.png" srcset="img/card-desktop@2x.png 2x" alt="Плата" width="705" height="515">
-            </picture>
+        <div class="general__wrapper wrapper">
+          <div class="general__block">
+            <h1 class="general__title">Печатные платы</h1>
+            <p class="general__paragraph">
+              производство и монтаж, поставка комплектующих, блоков и модулей
+            </p>
+            <a class="general__button link-scroll" href="#feedback">
+              <span class="general__button-long">получить бесплатную консультацию</span>
+              <span class="general__button-short">бесплатная консультация</span>
+            </a>
+            <a class="general__link-down link-scroll" href="#advantages">
+              Скролл вниз
+            </a>
           </div>
-          <a class="general__btn-down" href="#advantages">Скролл вниз</a>
         </div>
       </section>
       <section class="advantages" id="advantages">
@@ -137,7 +134,6 @@
       </section>
       <section class="feedback" id="feedback">
         <div class="wrapper feedback__wrapper">
-          <div class="feedback__air"></div>
           <form action="#" class="feedback__form">
             <h2>Остались вопросы? Задайте их нам!</h2>
             <p>Мы проконсультируем Вас бесплатно</p>
@@ -168,7 +164,7 @@
                 <use xlink:href="img/icon/symbols.svg#logo-footer"></use>
               </svg>
             </a>
-            <!-- <span class="footer__item1-add">1999-2018 SD Service Devices</span> -->
+            <span class="footer__item1-add">1999-2018 SD Service Devices</span>
             <div class="footer__social">
               <a href="#">
                 <svg width="27" height="27" viewBox="0 0 27 27">
@@ -229,27 +225,27 @@
       </div>
     </footer>
   </div>
-  <div class="overlay"></div>
-  <div class="popup-call">
-    <form action="#" class="popup-call__form popup-call__form--js">
-      <h2>Закажите звонок</h2>
-      <p>Оставьте контакты, мы проконсультируем вас бесплатно в удобное время</p>
-      <label for="popup-call__name">
-        <span class="visually-hidden">Введите ваше имя</span>
-      </label>
-      <input type="text" id="popup-call__name" name="name" placeholder="Имя" required>
-      <label for="popup-call__tel">
-        <span class="visually-hidden">Введите ваш телефон</span>
-      </label>
-      <input type="tel" id="popup-call__tel" name="phone" placeholder="Телефон" required>
-      <textarea placeholder="Ваш вопрос" name="question"></textarea>
-      <button type="submit">Отправить</button>
-      <input class="visually-hidden" name="consent" type="checkbox" id="popup-call__doc">
-      <label class="popup-call__doc-label" for="popup-call__doc">Я согласен на обработку персональных данных</label>
-      <button class="popup-call__close" type="button">
-        <span class="visually-hidden">Закрыть окно</span>
+  <div class="popup">
+    <div class="popup__wrapper">
+      <h2 class="popup__title">Закажите звонок</h2>
+      <span class="popup__description">Оставьте контакты, мы проконсультируем вас бесплатно в удобное время</span>
+      <form class="popup__form" action="https://echo.htmlacademy.ru" method="GET">
+        <label class="visually-hidden" for="name-popup">Введите ваше имя:</label>
+        <input id="name-popup" type="text" name="name" placeholder="Имя" required>
+        <label class="visually-hidden" for="tel-popup">Введите номер телефона:</label>
+        <input class="input-mask" id="tel-popup" type="tel" name="tel" placeholder="Телефон" pattern="[\+]\d{1}[\(]\d{3}[\)]\d{3}[\-]\d{2}[\-]\d{2}" minlength="16" maxlength="16" required>
+        <textarea id="popup-question" name="question" placeholder="Ваш вопрос"></textarea>
+        <input class="popup__consent" id="consent-popup" type="checkbox" name="consent" required checked>
+        <label for="consent-popup">Я согласен на обработку персональных данных</label>
+        <button class="popup__button" type="submit">Отправить</button>
+      </form>
+      <button class="popup__close-btn" type="button">
+        <span class="visually-hidden">закрыть</span>
+        <svg width="17" height="17">
+          <use xlink:href="img/icon/symbols.svg#icon-close-btn"></use>
+        </svg>
       </button>
-    </form>
+    </div>
   </div>
   <script src="js/script.min.js"></script>
 </body>

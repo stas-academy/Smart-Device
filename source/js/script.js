@@ -1,48 +1,86 @@
-// "use strict";
-const popup = () => {
-  const popupCall = document.querySelector(".popup-call");
-  const btnCall = document.querySelector(".header__btn");
-  const btnCloseCall = document.querySelector(".popup-call__close");
-  const overlayCall = document.querySelector(".overlay");
-  const nameInputCall = document.querySelector("#popup-call__name");
+'use strict';
 
+//popup
 
-  const body = document.querySelector("body");
-  const onPopupEscPress = (evt) => {
-    if (evt.key === "Escape") {
-      evt.preventDefault();
-      closePopup(evt);
+(function () {
+
+  let linkPopup = document.querySelector('.page-header__callback');
+  let popup = document.querySelector('.popup');
+
+  if (popup) {
+    let popupIn = popup.querySelector('.popup__wrapper');
+    let closeButton = popup.querySelector('.popup__close-btn');
+
+    let popupForm = popup.querySelector('.popup__form');
+    let popupName = popup.querySelector('#name-popup');
+    let popupTel = popup.querySelector('#tel-popup');
+    let popupText = popup.querySelector('#popup-question');
+
+    let isStorageSupport = true;
+    let storageName = '';
+    let storageTel = '';
+    let storageText = '';
+
+    try {
+      storageName = localStorage.getItem('name');
+      storageTel = localStorage.getItem('tel');
+      storageText = localStorage.getItem('text');
+    } catch (err) {
+      isStorageSupport = false;
     }
-  };
-  const openPopup = (evt) => {
-    evt.preventDefault();
-    popupCall.classList.add("popup-call--active");
-    body.classList.add("body--js");
-    overlayCall.classList.add("overlay--active");
-    btnCloseCall.addEventListener("click", closePopup);
-    document.addEventListener("keydown", onPopupEscPress);
-    overlayCall.addEventListener("click", closePopup);
-    nameInputCall.focus();
-  };
-  const closePopup = (evt) => {
-    evt.preventDefault();
-    popupCall.classList.remove("popup-call--active");
-    body.classList.remove("body--js");
-    overlayCall.classList.remove("overlay--active");
-    btnCloseCall.removeEventListener("click", closePopup);
-    document.removeEventListener("keydown", onPopupEscPress);
-    overlayCall.removeEventListener("click", closePopup);
-  };
-  btnCall.addEventListener("click", openPopup);
-};
-let isStorage = popup;
-let storage = "";
 
-try {
-  storage = popup();
-} catch (err) {
-  isStorage = false;
-}
+    linkPopup.addEventListener('click', function (evt) {
+      evt.preventDefault();
+      popup.classList.add('popup--open');
+
+      popupName.focus();
+
+      if (storageName) {
+        popupName.value = storageName;
+        popupTel.value = storageTel;
+        popupText.value = storageText;
+      }
+    });
+
+    closeButton.addEventListener('click', function (evt) {
+      evt.preventDefault();
+      popup.classList.remove('popup--open');
+    });
+
+    popupForm.addEventListener('submit', function (evt) {
+      if (!popupName.value || !popupTel.value) {
+        evt.preventDefault();
+      } else {
+        if (isStorageSupport) {
+          localStorage.setItem('name', popupName.value);
+          localStorage.setItem('tel', popupTel.value);
+          localStorage.setItem('text', popupText.value);
+        }
+      }
+    });
+
+    window.addEventListener('keydown', function (evt) {
+      if (evt.key === 'Escape' || evt.key === 'Esc') {
+        if (popup.classList.contains('popup--open')) {
+          evt.preventDefault();
+          popup.classList.remove('popup--open');
+        }
+      }
+    });
+
+    popup.addEventListener('click', function (evt) {
+      if (evt.target !== popupIn) {
+        popup.classList.remove('popup--open');
+      }
+    });
+
+    popupIn.addEventListener('click', function (evt) {
+      evt.stopPropagation();
+    });
+  }
+})();
+
+//down
 
 {
   const btn = document.querySelectorAll(".footer__item-btn");
@@ -60,3 +98,20 @@ try {
     });
   }
 }
+
+//scroll
+
+const anchors = document.querySelectorAll('a[href*="#"]');
+
+  anchors.forEach(function (anchor) {
+    anchor.addEventListener('click', function (evt) {
+      evt.preventDefault();
+
+      let blockID = anchor.getAttribute('href').substr(1);
+
+      document.getElementById(blockID).scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    });
+  });
