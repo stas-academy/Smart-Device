@@ -3,7 +3,7 @@
 //popup
 
 (function () {
-
+  let body = document.querySelector('.body');
   let linkPopup = document.querySelector('.page-header__callback');
   let popup = document.querySelector('.popup');
 
@@ -32,6 +32,7 @@
     linkPopup.addEventListener('click', function (evt) {
       evt.preventDefault();
       popup.classList.add('popup--open');
+      body.classList.add('body--no-scroll');
 
       popupName.focus();
 
@@ -45,6 +46,7 @@
     closeButton.addEventListener('click', function (evt) {
       evt.preventDefault();
       popup.classList.remove('popup--open');
+      body.classList.remove('body--no-scroll');
     });
 
     popupForm.addEventListener('submit', function (evt) {
@@ -64,6 +66,7 @@
         if (popup.classList.contains('popup--open')) {
           evt.preventDefault();
           popup.classList.remove('popup--open');
+          body.classList.remove('body--no-scroll');
         }
       }
     });
@@ -71,6 +74,7 @@
     popup.addEventListener('click', function (evt) {
       if (evt.target !== popupIn) {
         popup.classList.remove('popup--open');
+        body.classList.remove('body--no-scroll');
       }
     });
 

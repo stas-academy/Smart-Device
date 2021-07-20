@@ -7,10 +7,12 @@
   background-color: $color-black-op;
   padding-top: 100px;
   display: none;
+  overflow-y: auto;
 
   &--open {
     display: block;
     z-index: 100;
+    // overflow-y: auto;
   }
 }
 
