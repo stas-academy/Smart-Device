@@ -119,3 +119,59 @@ const anchors = document.querySelectorAll('a[href*="#"]');
       });
     });
   });
+
+
+  // mask
+
+window.addEventListener('DOMContentLoaded', function () {
+  function setCursorPosition(pos, elem) {
+    elem.focus();
+    if (elem.setSelectionRange) {
+      elem.setSelectionRange(pos, pos);
+    } else if (elem.createTextRange) {
+      let range = elem.createTextRange();
+      range.collapse(true);
+      range.moveEnd('character', pos);
+      range.moveStart('character', pos);
+      range.select();
+    }
+  }
+
+  let obj = {
+    foo: function mask(event) {
+      let matrix = '+7(___)___-__-__';
+      let h = 0;
+      let def = matrix.replace(/\D/g, '');
+      let val = this.value.replace(/\D/g, '');
+      if (def.length >= val.length) {
+        val = def;
+      }
+      this.value = matrix.replace(/./g, function (a) {
+        if (/[_\d]/.test(a) && h < val.length) {
+          return val.charAt(h++);
+        } else if (h >= val.length) {
+          return '';
+        } else {
+          return a;
+        }
+      });
+      if (event.type === 'blur') {
+        if (this.value.length === 2) {
+          this.value = '';
+        }
+      } else {
+        setCursorPosition(this.value.length, this);
+      }
+    }
+  };
+
+  let elements = document.querySelectorAll('.input-mask');
+
+  if (elements) {
+    for (let k = 0; k < elements.length; k++) {
+      elements[k].addEventListener('input', obj.foo, false);
+      elements[k].addEventListener('focus', obj.foo, false);
+      elements[k].addEventListener('blur', obj.foo, false);
+    }
+  }
+});
